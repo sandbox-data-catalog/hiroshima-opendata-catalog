@@ -1,0 +1,22 @@
+{% ckan_extends %}
+
+{% block footer_links %}
+  <li><a href="{{ h.url_for(controller='home', action='about') }}">{{ _('About') }}</a></li>
+  <li><a href="{{ h.url_for('home.opinion') }}">{{ _('Opinion') }}</a></li>
+  <li><a href="{{ h.url_for('home.about-use') }}">{{ _('About use') }}</a></li>
+  <li><a href="{{ h.url_for('home.usepolicy') }}">{{ _('Use policy') }}</a></li>
+  <li><a href="{{ h.iot_canvas_url() }}" target="_blank">{{ _('IoT Canvas') }} <i class="fa fa-external-link"></i></a></li>
+  <li><a href="{{ h.hiroshima_prefecture_url() }}" target="_blank">{{ _('Hiroshima Prefecture') }} <i class="fa fa-external-link"></i></a></li>
+  <li><a href="{{ h.hiroshima_sandbox_url() }}" target="_blank">{{ _('Hiroshima Sandbox') }} <i class="fa fa-external-link"></i></a></li>
+{% endblock %}
+
+{% block footer_attribution %}
+  <p class="sandbox_logo"><a href="{{ h.hiroshima_sandbox_url() }}" target="_blank"><img src="{{ h.url_for_static('/images/hiroshima_sandbox_logo.png') }}" alt="ひろしまサンドボックス"></a></p>
+  {{ super() }}
+{% endblock %}
+
+{% block footer_links_ckan %}
+{% endblock %}
+
+{% block footer_lang %}
+{% endblock %}

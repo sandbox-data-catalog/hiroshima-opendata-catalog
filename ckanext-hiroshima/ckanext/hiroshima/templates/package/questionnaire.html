@@ -1,0 +1,42 @@
+{% extends 'package/base.html' %}
+{% import 'macros/form.html' as form %}
+
+{% set pkg = c.pkg_dict %}
+{% set res = c.resource %}
+
+{% block subtitle %}{{ h.dataset_display_name(pkg) }} - アンケート{% endblock %}
+
+{% block breadcrumb_content_selected %}{% endblock %}
+
+{% block breadcrumb_content %}
+  {{ super() }}
+  <li>{% link_for h.resource_display_name(res)|truncate(30), controller='package', action='resource_read', id=pkg.name, resource_id=res.id %}</li>
+  <li class="active">{% link_for 'アンケート', named_route='package.questionnaire', id=pkg.name, resource_id=res.id %}</li>
+{% endblock %}
+
+{% block content_action %}
+  {% link_for _('View dataset'), controller='package', action='read', id=pkg.name, class_='btn btn-default', icon='eye' %}
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block primary_content_inner %}
+<h1 class="page-heading"> アンケート </h1>
+{{ form.errors(error_summary) }}
+<form class="dataset-form dataset-resource-form" method="post">
+  <p class="action-info">本データのダウンロードを利用する目的について，アンケートへのご協力をお願い致します。今後の広島県におけるオープンデータの促進に向けて，参考にさせて頂きます。</p>
+  <div class="form-group control-medium">
+    <label class="control-label">利用目的の確認（任意）</label>
+    {{ h.snippet("package/snippets/purposes_form.html", form_data=form_data, errors=errors) }}
+  </div>
+  <div class="form-actions">
+    <button class="btn btn-default" name="skip" type="submit" value="SKIP">SKIP</button>
+    <button class="btn btn-primary" name="submit" type="submit" value="送信">送信</button>
+  </div>
+</form>
+{% endblock %}
+
+{% block secondary_content %}
+  {% snippet 'package/snippets/resource_info.html', res=res %}
+{% endblock %}

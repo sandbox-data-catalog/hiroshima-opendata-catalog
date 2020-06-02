@@ -1,0 +1,8 @@
+{% ckan_extends %}
+
+{% block content_primary_nav %}
+  {{ super() }}
+  {% if c.userobj.sysadmin and (pkg.license_id == h.meta_data_request_license_id() or pkg.license_id == h.questionnaire_license_id() or pkg.license_id == h.data_request_license_id()) %}
+      {{ h.build_nav_icon('package.request-list', '申込情報', id=pkg.name) }}
+  {% endif %}
+{% endblock %}

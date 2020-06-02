@@ -1,0 +1,8 @@
+{% ckan_extends %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ h.url_for_static('/css/hiroshima_header.css') }}" />
+<link rel="stylesheet" href="{{ h.url_for_static('/css/hiroshima_main.css') }}" />
+<link rel="stylesheet" href="{{ h.url_for_static('/css/hiroshima_footer.css') }}" />
+{% endblock %}

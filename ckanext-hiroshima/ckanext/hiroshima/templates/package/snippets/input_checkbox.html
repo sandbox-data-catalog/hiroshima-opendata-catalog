@@ -1,0 +1,6 @@
+<div class="controls">
+    <label class ="checkbox" for="field-{{ name }}_{{ index }}">
+      <input id="field-{{ name }}_{{ index }}" type="checkbox" name="{{ name }}" value="{{ label }}" {% if name in form_data and label in form_data[name] %}checked{% endif %}>
+      {{ label }}
+    </label>
+</div>

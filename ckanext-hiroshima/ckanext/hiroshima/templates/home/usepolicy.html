@@ -1,0 +1,37 @@
+{% extends "page.html" %}
+
+{% block subtitle %}{{ _('Use policy')}}{% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="active">{% link_for _('Use policy'), named_route='home.usepolicy' %}</li>
+{% endblock %}
+
+{% block primary %}
+  <article class="module">
+    <div class="module-content hiroshima-contents">
+      {% block usepolicy %}
+      <h1>利用規約</h1>
+      <div>
+        <p>ひろしまサンドボックスデータ連携基盤システム利用規約は，「ひろしまサンドボックス データカタログサイト」（以下「本サイト」という。）のひろしまサンドボックス実証実験データ※の利用に関しての規約です。広島県のオープンデータ等に関しては，対象外となります。対象外のデータに関しては，各データセットの詳細ページに記載されているクリエイティブ・コモンズ・ライセンスのライセンス条件の範囲内で利用することが可能です。</p>
+        <p>ひろしまサンドボックスデータ連携基盤システム利用規約の内容は、必要に応じて、事前の予告なしに変更されることがありますので、サービスのご利用に際しては、本ページで利用規約の最新の内容をご確認下さい。</p>
+        <p>ひろしまサンドボックスデータ連携基盤システム利用規約については，<a href="https://hiroshima-sandbox.jp/resource/pdf/data-riyoukiyaku.pdf" target="_blank">こちら</a></p>
+        <br>
+        <p>※ひろしまサンドボックス実証実験データは，各データセットの詳細ページに記載されているライセンス条件が「Hiroshima Sandbox License」と表示されているものになります。ライセンス表示イメージは以下ご参照ください。</p>
+        <br>
+        <div><image src="/images/dataset_sample.png" /></div>
+        <br>
+        <div>
+          <p>＜お問い合わせ＞</p>
+          <p>イノベーション推進チーム　地域産業デジタル化推進担当</p>
+          <p>〒730-8511 広島市中区基町10番52号</p>
+          <p>地域産業デジタル化推進担当</p>
+          <p>電話：082-513-3348</p>
+        </div>
+      </div>
+      {% endblock %}
+    </div>
+  </article>
+
+{% endblock %}
+
+{% block secondary %}{% endblock %}

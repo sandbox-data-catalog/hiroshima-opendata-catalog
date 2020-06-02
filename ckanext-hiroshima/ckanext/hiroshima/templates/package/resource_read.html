@@ -1,0 +1,52 @@
+{% ckan_extends %}
+
+{% block resource_actions_inner %}
+{% if h.check_access('package_update', {'id':pkg.id }) %}
+  <li>{% link_for _('Manage'), controller='package', action='resource_edit', id=pkg.name, resource_id=res.id, class_='btn btn-default', icon='wrench' %}</li>
+{% endif %}
+
+{% if res.url and h.is_url(res.url) %}
+  <li>
+    <div class="btn-group">
+      {% if pkg.license_id == h.data_request_license_id() %}
+        {# Hiroshima Sandbox Licenseの場合はアンケート画面へ遷移させる #}
+        <a class="btn btn-primary resource-url-analytics" href="{{ h.url_for('package.data-request', id=pkg.name, resource_id=res.id) }}">
+        <i class="fa fa-arrow-circle-o-down"></i> {{ _('Download') }}
+      {% elif pkg.license_id == h.questionnaire_license_id() %}
+        {# CC BY 2.1 JPの場合はアンケート画面へ遷移させる #}
+        <a class="btn btn-primary resource-url-analytics" href="{{ h.url_for('package.questionnaire', id=pkg.name, resource_id=res.id) }}">
+        <i class="fa fa-arrow-circle-o-down"></i> {{ _('Download') }}
+      {% else %}
+        {# 上記以外のライセンスの場合はCKAN既存の処理・表示を行う #}
+        <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}">
+          {% if res.resource_type in ('listing', 'service') %}
+            <i class="fa fa-eye"></i> {{ _('View') }}
+          {% elif (not res.has_views or not res.can_be_previewed) and not res.url_type == 'upload' %}
+            <i class="fa fa-external-link"></i> {{ _('Go to resource') }}
+          {% else %}
+            <i class="fa fa-arrow-circle-o-down"></i> {{ _('Download') }}
+          {% endif %}
+      {% endif %}
+      </a>
+    </div>
+  </li>
+{% endif %}
+{% endblock %}
+
+{% block resource_read_url %}
+  {% if pkg.license_id != h.data_request_license_id() and pkg.license_id != h.questionnaire_license_id() %}
+    {% if res.url and h.is_url(res.url) %}
+      <p class="text-muted ellipsis">{{ _('URL:') }} <a class="resource-url-analytics" href="{{ res.url }}" title="{{ res.url }}">{{ res.url }}</a></p>
+    {% elif res.url %}
+      <p class="text-muted break-word">{{ _('URL:') }} {{ res.url }}</p>
+    {% endif %}
+  {% endif %}
+{% endblock %}
+
+{% block resource_content %}
+  {{ super() }}
+  <p>※ファイル形式によってはプレビューを表示できない場合があります。<br>※データの作り方によって、プレビュー表示が崩れる場合があります。その場合は直接データをダウンロードしてご確認ください。</p>
+{% endblock %}
+
+{% block resource_data_dictionary %}
+{% endblock %}

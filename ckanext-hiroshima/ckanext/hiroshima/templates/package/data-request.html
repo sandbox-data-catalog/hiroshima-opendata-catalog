@@ -1,0 +1,61 @@
+{% extends 'package/base.html' %}
+{% import 'macros/form.html' as form %}
+
+{% set pkg = c.pkg_dict %}
+{% set res = c.resource %}
+
+{% block subtitle %}{{ h.dataset_display_name(pkg) }} - アンケート{% endblock %}
+
+{% block breadcrumb_content_selected %}{% endblock %}
+
+{% block breadcrumb_content %}
+  {{ super() }}
+  <li>{% link_for h.resource_display_name(res)|truncate(30), controller='package', action='resource_read', id=pkg.name, resource_id=res.id %}</li>
+  <li class="active">{% link_for 'アンケート', named_route='package.data-request', id=pkg.name, resource_id=res.id %}</li>
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block primary_content_inner %}
+
+<h1 class="page-heading"> アンケート </h1>
+{{ form.errors(error_summary) }}
+<form class="dataset-form dataset-resource-form" method="post">
+  <p class="action-info">本データのダウンロードを利用する目的について，アンケートへのご協力をお願い致します。今後のデータ拡充等の参考にさせて頂きます。</p>
+
+  <div class="form-group control-medium">
+    <label class="control-label">利用目的の確認（必須）</label>
+    {{ h.snippet("package/snippets/purposes_form.html", form_data=form_data, errors=errors) }}
+  </div>
+  <div class="form-group control-medium">
+    <label class="control-label">規約の同意及びひろしまサンドボックス推進協議会への参加確認（必須）</label>
+    <p class="action-info">ダウンロードに当たっては，<a href="https://hiroshima-sandbox.jp/resource/pdf/data-riyoukiyaku.pdf" target="_blank">本規約</a>への同意及びひろしまサンドボックス推進協議会（無料）への参加が必要となります。</p>
+    <div class="controls">
+      <label class="checkbox">
+        <input type="checkbox" id="field-participation-consent" value="同意する" name="participation-consent" {% if 'participation-consent' in form_data and form_data['participation-consent'] == '同意する' %}checked{% endif %}>
+        同意する
+        <span title="{{ _("This field is required") }}" class="control-required">*</span>
+        {% if errors['participation-consent'] %}<strong class="error-inline">{{ errors['participation-consent']|join(', ') }}</strong>{% endif %}
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" id="field-participation-already" value="参加済み" name="participation-already" {% if 'participation-already' in form_data and form_data['participation-already'] == '参加済み' %}checked{% endif %}>
+        参加済み
+        <span title="{{ _("This field is required") }}" class="control-required">*</span>
+        {% if errors['participation-already'] %}<strong class="error-inline">{{ errors['participation-already']|join(', ') }}</strong>{% endif %}
+      </label>
+    </div>
+    <p class="action-info">注）未参加の方は<a href="https://www.pref.hiroshima.lg.jp/ques/questionnaire.php?openid=1019" target="_blank">こちら</a>からご参加をお願い致します（無料）。</p>
+    <label class="control-label">利用者の確認（必須）</label>
+    {{ h.snippet("package/snippets/user_info_form.html", form_data=form_data, errors=errors) }}
+  </div>
+
+  <div class="form-actions">
+    <button class="btn btn-primary" type="submit">送信</button>
+  </div>
+</form>
+{% endblock %}
+
+{% block secondary_content %}
+  {% snippet 'package/snippets/resource_info.html', res=res %}
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'package/edit_base.html' %}
+
+{% set pkg = c.pkg_dict %}
+
+{% block breadcrumb_content_selected %}{% endblock %}
+
+{% block breadcrumb_content %}
+  {{ super() }}
+{% endblock %}
+
+{% block content_action %}
+  {% link_for _('View dataset'), controller='package', action='read', id=pkg.name, class_='btn btn-default', icon='eye' %}
+{% endblock %}
+
+{% block primary_content_inner %}
+<h1 class="page-heading"> 申込情報 </h1>
+<div>
+  <table class="request-info">
+    <thead>
+      <tr>
+        <th class="date">申込日時</th>
+        <th class="state">メール確認</th>
+        <th class="name">申込者</th>
+        <th class="resource">リソース名</th>
+        <th class="data">申込内容</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for request in c.page.items %}
+      <tr>
+        <td class="date">{{ request.datetime }}</td>
+        {% if request.mail_sent == 1 %}
+        <td class="state">済</td>
+        {% else %}
+        <td class="state">未</td>
+        {% endif %}
+        <td class="name">{{ request.name or '-' }}<br>{{ request.mail or '' }}</td>
+        <td class="resource">{{ request.resource or '-' }}</td>
+        <td class="data">
+          <div class="show-reason">
+            <button>+表示</button>
+          </div>
+          <div class="hide-reason">
+            <button>-非表示</button>
+            <table class="request-data">
+              {% for purpose in request.purposes %}
+              <tr>
+                <th>申請理由</th>
+                <td>{{ purpose }}</td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
+          <input class="display_status" type="hidden" value="0" />
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<script src="../../js/request-list.js"></script>
+
+{% block page_pagination %}
+{{ c.page.pager() }}
+{% endblock %}
+
+{% endblock %}
+
+{% block secondary_content %}
+  {% snippet 'package/snippets/info.html', pkg=pkg, hide_follow_button=true %}
+{% endblock %}

@@ -1,0 +1,8 @@
+{% ckan_extends %}
+
+{% block content_primary_nav %}
+    {{ super() }}
+    {% if pkg.license_id == h.meta_data_request_license_id() %}
+        {{ h.build_nav_icon('package.meta-data-request', '利用申し込み', id=pkg.name) }}
+    {% endif %}
+{% endblock %}

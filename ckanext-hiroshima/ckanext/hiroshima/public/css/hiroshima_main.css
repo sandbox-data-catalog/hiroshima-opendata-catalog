@@ -1,0 +1,106 @@
+td, th {
+  border: 1px solid #bbb;
+  padding: 2px;
+}
+
+thead > tr {
+  background: #fefefe;
+}
+
+tbody tr:nth-child(2n) {
+  background: #eee;
+}
+
+tbody tr:nth-child(2n+1) {
+  background: #ddd;
+}
+
+tbody tr tbody tr:first-child {
+  background: #f3f3f3;
+}
+
+.hide {
+  display: none !important;
+}
+
+.hiroshima-main {
+  z-index: 0;
+}
+
+.content {
+  margin-top: 40px;
+}
+
+.content ul {
+  padding-left: 20px;
+}
+
+.sub-title {
+  font-weight: bold;
+}
+
+.explanation {
+  font-size: 1rem;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex.space-between {
+  justify-content: space-between;
+}
+
+table.request-info {
+  width: 100%;
+}
+
+table.request-info th {
+  text-align: center;
+}
+
+table.request-info .date {
+  width: 15%;
+}
+
+table.request-info .state {
+  width: 10%;
+}
+
+table.request-info .name {
+  width: 20%;
+}
+
+table.request-info .resource {
+  width: 10%;
+}
+
+table.request-info table.request-data {
+  width: 100%;
+}
+
+table.request-info table.request-data th {
+  width: 90px;
+}
+
+table.request-info tbody .date, table.request-info tbody .state {
+  text-align: center;
+}
+
+.request-form-row {
+  padding: 5px 0px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hiroshima-contents {
+  font-size: 16px;
+}
+
+.hiroshima-contents h4 {
+  font-size: 16px;
+}

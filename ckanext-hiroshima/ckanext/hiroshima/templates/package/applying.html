@@ -1,0 +1,33 @@
+{% extends 'package/read_base.html' %}
+
+{% block breadcrumb_content_selected %}{% endblock %}
+
+{% block breadcrumb_content %}
+  {{ super() }}
+
+  <li class="active"><a>利用申請中</a></li>
+{% endblock %}
+
+{% block primary_content_inner %}
+<h1 class="page-heading"> メールアドレス受信確認用メールを送信しました </h1>
+<div>
+  <div>{{ email_address }} 宛に受信確認用メールを送信しました。</div>
+  <div>メールをご確認いただき、メールに記載されたURLをクリックすると申込みが完了となります。</div>
+</div>
+
+<div class="content">
+  <div class="sub-title">メールが届かない場合</div>
+  <div>受信確認用メールが届かない場合、以下をご確認ください</div>
+  <ul>
+    <li>メールアドレスが正しく入力されているか今一度ご確認ください。</li>
+    <li>
+      メールボックスの設定によって迷惑メールに振り分けられていたり<br>
+      受信ボックス以外の場所に補完されていないかご確認ください。
+    </li>
+    <li>
+      メール配信に時間がかかる場合がございます。数分程度待った上で、メールが届いているか再度ご確認ください。
+    </li>
+  </ul>
+</div>
+
+{% endblock %}

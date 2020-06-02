@@ -1,0 +1,135 @@
+#disp {
+  height: 95%;
+}
+
+#container {
+  display: grid;
+  grid-template-rows: 75px 250px 100px 100px 310px 450px 450px 600px;
+  grid-template-columns: 50% 50%;
+  grid-template-areas:
+    'logo logo'
+    'dataset dataset'
+    'site-info aboutuse'
+    'opinion sandbox'
+    'iotcanvas-button iotcanvas-button'
+    'iotcanvas-map iotcanvas-map'
+    'iot-canvas iot-canvas'
+    'new-dataset new-dataset';
+  width: 100%;
+}
+
+#logo {
+  grid-area: logo;
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 1fr 110px 1fr;
+  grid-template-areas: 'top logoimage bottom';
+
+  #top {
+    grid-area: top;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      display: inline-block;
+    }
+  }
+
+  #logoimage {
+    grid-area: logoimage;
+  }
+
+  #bottom {
+    grid-area: bottom;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      display: inline-block;
+    }
+  }
+}
+
+#dataset {
+  grid-area: dataset;
+}
+#site-info {
+  grid-area: site-info;
+}
+#aboutuse {
+  grid-area: aboutuse;
+}
+#opinion {
+  grid-area: opinion;
+}
+#new-dataset {
+  grid-area: new-dataset;
+}
+#iot-canvas {
+  grid-area: iot-canvas;
+}
+#sandbox {
+  grid-area: sandbox;
+}
+#iotcanvas-button {
+  grid-area: iotcanvas-button;
+}
+#iotcanvas-map {
+  grid-area: iotcanvas-map;
+}
+
+.canvas-grapharea {
+  display: flex;
+  align-items: center;
+  height: 90%;
+
+  .canvas-graph-labelarea {
+    width: 50%;
+    order: 2;
+    padding-left: 10px;
+    height: 80%;
+
+    .canvas-graph-labels {
+      width: 100%;
+    }
+  }
+
+  .canvas-graph-chartarea {
+    width: 50%;
+    order: 1;
+
+    .canvas-pieChart {
+      width: 100%;
+    }
+  }
+}
+
+.sandbox-image {
+  background: url('./assets/image/sp-hiroshima-sandbox.png') top;
+  background-size: cover;
+}
+
+.btn-data {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.btn-large {
+  font-size: 12px;
+  display: flex;
+}
+.btn-mini {
+  font-size: 14px;
+  display: flex;
+  width: 45%;
+  height: 70px;
+}
+
+.dataset-title {
+  font-size: 32px;
+}
+.dataset-item {
+  font-size: 10px;
+}

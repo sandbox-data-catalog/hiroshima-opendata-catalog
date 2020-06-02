@@ -1,0 +1,27 @@
+#row {
+  display: grid;
+  height: 70%;
+  grid-template-rows: 60% 40%;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-areas:
+    'subcolumn subcolumn subcolumn subcolumn'
+    'subdataset subclass subgroup subtag';
+  margin-left: auto;
+  margin-right: auto;
+
+  #subcolumn {
+    grid-area: subcolumn;
+  }
+  #subdataset {
+    grid-area: subdataset;
+  }
+  #subclass {
+    grid-area: subclass;
+  }
+  #subgroup {
+    grid-area: subgroup;
+  }
+  #subtag {
+    grid-area: subtag;
+  }
+}

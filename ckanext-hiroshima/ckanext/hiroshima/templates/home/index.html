@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{%- block custom_styles %}
+  {{ super() }}
+
+  {% for css in css_list %}
+    <link href=/dist/css/{{ css }} rel=preload as=style>
+    <link href=/dist/css/{{ css }} rel=stylesheet>
+  {% endfor %}
+{% endblock %}
+
+{% block page %}
+  <noscript><strong>We're sorry but test-vue doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript>
+  <div id="app"></div>
+  {% for js in js_list %}
+    <script src=/dist/js/{{ js }}></script>
+  {% endfor %}
+{% endblock %}

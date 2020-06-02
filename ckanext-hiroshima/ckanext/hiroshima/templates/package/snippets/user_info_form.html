@@ -1,0 +1,7 @@
+{% import 'macros/form.html' as form %}
+
+<div class=" form-group control-medium">
+  {{ form.input('company-name', id='field-company-name', label='会社名', value=form_data['company-name'], placeholder='', type='text', error=errors['company-name'], is_required=true) }}
+  {{ form.input('staff-name', id='field-staff-name', label='担当者名', value=form_data['staff-name'], placeholder='', type='text', error=errors['staff-name'], is_required=true) }}
+  {{ form.input('email-address', id='field-email-address', label='連絡先メールアドレス', value=form_data['email-address'], placeholder='', type='text', error=errors['email-address'], is_required=true) }}
+</div>

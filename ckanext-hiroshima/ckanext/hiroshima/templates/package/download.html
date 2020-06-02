@@ -1,0 +1,31 @@
+{% extends 'package/base.html' %}
+
+{% set pkg = c.pkg_dict %}
+{% set res = c.resource %}
+
+{% block subtitle %}{{ h.dataset_display_name(pkg) }} - リソースのダウンロード{% endblock %}
+{% block breadcrumb_content_selected %}{% endblock %}
+
+{% block breadcrumb_content %}
+  {{ super() }}
+  <li>{% link_for h.resource_display_name(res)|truncate(30), controller='package', action='resource_read', id=pkg.name, resource_id=res.id %}</li>
+  <li class="active">{% link_for 'リソースのダウンロード', named_route='package.complete-request', id=pkg.name, resource_id=res.id, answered=answered %}</li>
+{% endblock %}
+{% block page_header %}
+{% endblock %}
+
+{% block primary_content_inner %}
+  <h1 class="page-heading"> リソースのダウンロード </h1>
+
+  {% if answered %}
+    <p class="action-info">アンケートへのご協力ありがとうございました。</p>
+  {% endif %}
+  <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}">
+    <i class="fa fa-arrow-circle-o-down"></i>
+    {{ _('Download') }}
+  </a>
+{% endblock %}
+
+{% block secondary_content %}
+  {% snippet 'package/snippets/resource_info.html', res=res %}
+{% endblock %}

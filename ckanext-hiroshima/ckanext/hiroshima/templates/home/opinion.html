@@ -1,0 +1,27 @@
+{% extends "page.html" %}
+
+{% block subtitle %}{{ _('Opinion') }}{% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="active">{% link_for _('Opinion'), named_route='home.opinion' %}</li>
+{% endblock %}
+
+{% block primary %}
+<article class="module">
+  <div class="module-content hiroshima-contents">
+    {% block opinion %}
+    <h1>ご意見・ご要望</h1>
+    <div>
+      <p>広島県のオープンデータに対するご意見・ご要望やデータセットに関するご要望，本サイトへのご意見などをお寄せください。</p>
+      <br>
+      <p>また、本サイト掲載データをご利用いただいた方を対象に，ひろしまサンドボックス推進協議会メンバへデータ利用事例として紹介させていただく他，関連する取り組みをされている方がいる場合はご紹介など，ご希望に応じたプロモーションやマッチング支援をさせていただきますので，ご要望のある方は、以下の受付フォームからお知らせください。</p>
+      <br>
+      <p>オープンデータポータル <a href="https://www.pref.hiroshima.lg.jp/ques/questionnaire.php?openid=1236" target="_blank">ご意見・ご要望受付フォーム</a></p>
+    </div>
+    {% endblock %}
+  </div>
+</article>
+
+{% endblock %}
+
+{% block secondary %}{% endblock %}

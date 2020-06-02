@@ -1,0 +1,247 @@
+.canvas {
+  background-color: rgba(255, 255, 255, 0.8);
+  height: calc(100% - 120px);
+}
+
+.canvas iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.canvas-lineChart {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: calc(50% - 60px);
+}
+
+.canvas-margin {
+  height: calc(15% - 30px);
+}
+
+.canvas-grapharea {
+  width: 100%;
+  padding: 0 10%;
+}
+
+.canvas-graph-labelarea {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.canvas-graph-labels {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.canvas-graph-label-box {
+  width: 15px;
+  height: 15px;
+  margin-right: 2px;
+  border: 2px solid #fff;
+}
+
+.canvas-pieChart {
+  height: calc(70% - 60px);
+}
+
+.pieChart-center {
+  display: flex;
+  align-items: center;
+}
+
+.column {
+  margin: 5px;
+  .top {
+    font-weight: bold;
+    font-size: 24px;
+  }
+  .bottom {
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  .title {
+    padding: 5px;
+    height: 40px;
+    color: #ffffff;
+    background-color: #a41919;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .data {
+    background-color: #ffffff;
+    height: calc(100% - 40px);
+    padding: 10px;
+
+    .record {
+      text-align: left;
+      border-bottom: solid 2px #aaaaaa;
+      height: auto;
+
+      .date {
+        color: grey;
+        font-weight: bold;
+      }
+    }
+  }
+  .bottom-aria {
+    background-color: #ffffff;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .button {
+      height: 70%;
+      width: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #ffffff;
+      background-color: #a41919;
+    }
+  }
+  &.inline-block {
+    display: inline-block;
+  }
+}
+
+.info {
+  background-color: #212d2f;
+  height: calc(100% - 30px);
+  padding: 10px;
+  color: #ffffff;
+  text-align: left;
+
+  .index {
+    text-align: left;
+    border-bottom: solid 2px #ffffff;
+    color: #ffffff;
+    height: auto;
+  }
+
+  .record {
+    height: auto;
+
+    .icon {
+      width: 30%;
+      background-color: #006600;
+    }
+  }
+}
+
+#dataset {
+  background: url('./assets/image/IoT.jpg') no-repeat center;
+  position: relative;
+
+  .dataset-field {
+    background: rgba(50, 50, 50, 0.7);
+    margin: 10px;
+    overflow: hidden;
+
+    .dataset-title {
+      color: white;
+      font-weight: 700;
+      margin: 10px;
+      border: solid 5px white;
+      border-radius: 10px;
+      display: table;
+      width: calc(100% - 20px);
+
+      span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    .dataset-item {
+      border: none;
+      padding: 5px;
+      font-weight: 600;
+      a {
+        color: white;
+      }
+
+      .dataset-item-num {
+        font-size: 28px;
+        line-height: 0.6em;
+      }
+    }
+  }
+  .search_container {
+    height: 20%;
+    width: 100%;
+    font-size: 24;
+    display: flex;
+    padding: 0 0 0 10%;
+
+    input[type='text'] {
+      /* デフォルトスタイルをリセット */
+      background-color: #ffffff;
+      border: 3px solid #a41919;
+      border-radius: 10px 0px 0px 10px;
+      width: 70%;
+      height: 80%;
+      background-image: url('./assets/image/glass.png');
+      background-repeat: no-repeat;
+      background-position: 8px center;
+      background-size: auto 60%;
+      padding-left: 30px;
+      outline: 0;
+    }
+    input[type='submit'] {
+      /* デフォルトスタイルをリセット */
+      background-color: initial;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 600;
+      background-color: #a41919;
+      border: 3px solid #a41919;
+      border-radius: 0px 10px 10px 0px;
+      width: 20%;
+      height: 80%;
+    }
+  }
+}
+
+#sandbox-facebook {
+  border: solid 1px #ddd;
+}
+
+#logo {
+  position: relative;
+  background: #a41919;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  height: calc(100% - 10px);
+
+  #logoimage {
+    color: white;
+    background: #a41919 url('./assets/image/ckan-logo.png') no-repeat center/50%;
+  }
+}
+
+.sandbox-image {
+  background: url('./assets/image/hiroshima-sandbox.png') top;
+  background-size: cover;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.btn-square {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  background: #a41919; /*ボタン色*/
+  color: #fff;
+}
+img {
+  margin-right: 5px;
+}

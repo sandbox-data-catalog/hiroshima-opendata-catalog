@@ -1,0 +1,66 @@
+{% extends "page.html" %}
+
+{% block subtitle %}{{ _('About use') }}{% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="active">{% link_for _('About use'), named_route='home.about-use' %}</li>
+{% endblock %}
+
+{% block primary %}
+<article class="module">
+  <div class="module-content hiroshima-contents">
+    {% block about_use %}
+    <h1>本サイトの利用について</h1>
+    <div>
+      <p>当サイトでは，<a href="https://hiroshima-sandbox.jp/#area2" target="_blank">ひろしまサンドボックス</a>が行っている実証実験で得られたデータやメタデータ（データの目録）の閲覧及びメタデータ元のデータの開示に関する問い合わせ，広島県オープンデータ等のダウンロードができます。</p>
+      <br>
+      <h4>○ひろしまサンドボックス実証実験データ及びメタデータについて</h4>
+      <p>ひろしまサンドボックス実証実験で得られたデータの内，公開が可能なデータにつきましては，データそのものをダウンロードすることができます（<a href="https://hiroshima-sandbox.jp/resource/pdf/data-riyoukiyaku.pdf" target="_blank">利用規約</a>への同意及びひろしまサンドボックス推進協議会（無料）への参加※が必要になります）。</p>
+      <p>メタデータのみを公開しているデータ（未公開データ）に関しては，データを保有している実証実験代表企業に対し，開示可否の問い合わせを行うことができます。</p>
+      <p>メタデータのデータセット画面にて、「申込申請はこちら」ボタンをクリックし、必要事項をご記入ください。その後確認メールが届きますので、メール本文に記載されたURLをクリックいただくと申請完了となります。その後、メールの返信をお待ちください。</p>
+      <br>
+      <p>※ひろしまサンドボックス推進協議会への参加は<a href="https://www.pref.hiroshima.lg.jp/ques/questionnaire.php?openid=1019" target="_blank">こちら</a>から</p>
+      <br>
+      <h4>○広島県オープンデータについて</h4>
+      <p>クリエイティブ・コモンズ・ライセンスの<a href="http://creativecommons.jp/licenses/" target="_blank">ライセンス条件の範囲内</a>で利用することが可能です。</p>
+      <p>詳細は<a href="https://www.pref.hiroshima.lg.jp/soshiki/9/opendata.html" target="_blank">こちら</a>をご確認ください。</p>
+      <br>
+      <h4>○各データの一覧について</h4>
+      <p> ひろしまサンドボックス実証実験データ一覧は<a href="/dataset?groups=gr_9910">こちら</a></p>
+      <p> ひろしまサンドボックス実証実験メタデータ一覧は<a href="/dataset?groups=gr_9911">こちら</a></p>
+      <p> 広島県オープンデータ一覧は<a href="/dataset?groups=gr_9912">こちら</a></p>
+      <br>
+      <h3>APIの利用について</h3>
+      <p>当サイトでは，データカタログサイトのプラットフォームとしてCKANを利用しています。</p>
+      <p>CKAN APIを利用してデータセットのメタデータへWeb API経由でアクセス可能です。</p>
+      <p>またCSVやXLSといった表形式のデータについては、ファイルの中身にアクセス可能になっています。</p>
+      <br>
+      <p>例）</p>
+      <p>データセット一覧を取得します。</p>
+      <p>https://data.hiroshima-sandbox.jp/api/3/action/package_list</p>
+      <p>自治体の一覧を取得します。</p>
+      <p>https://data.hiroshima-sandbox.jp/api/3/action/organization_list</p>
+      <p>ひろしまサンドボックスのデータセット一覧を取得します。</p>
+      <p>https://data.hiroshima-sandbox.jp/api/3/action/package_search?fq=groups:gr_9910</p>
+      <p>ひろしまサンドボックスのメタデータのデータセット一覧を取得します。</p>
+      <p>https://data.hiroshima-sandbox.jp/api/3/action/package_search?fq=groups:gr_9911</p>
+      <p>「○○」というキーワード検索に引っかかるデータセットの一覧を取得します。</p>
+      <p>https://data.hiroshima-sandbox.jp/api/3/action/package_search?q=○○</p>
+      <p>さらに詳細をご確認頂くには<a href="https://docs.ckan.org/en/latest/api/index.html" target="_blank">こちら</a>をご参照ください。</p>
+      <p>上記CKAN APIのマニュアルでは、「http://demo.ckan.org」の部分を「https://data.hiroshima-sandbox.jp/」 に置き換えてご利用ください。</p>
+      <br>
+      <br>
+      <h3>Q & A</h3>
+      <p>１．ライセンス条件「Hiroshima Sandbox License」とは？<p>
+      <p>  ひろしまサンドボックス実証実験のデータであるため，別途ひろしまサンドボックスデータ連携基盤システム利用規約に同意及びひろしまサンドボックス推進協議会（無料）への参加を頂くことでダウンロードが可能なデータとなります。ダウンロード時には，<a href="https://hiroshima-sandbox.jp/resource/pdf/data-riyoukiyaku.pdf" target="_blank">利用規約</a>をご確認頂き，同意にチェックの上，データのご利用をお願い致します。</p>
+      <p>２．ライセンス条件「No Licence(Sample)」とは？</p>
+      <p>ひろしまサンドボックス実証実験のメタデータに伴うライセンスです。別途ひろしまサンドボックス推進協議会（無料）への参加を頂くことで，メタデータの元データ所有者に対して問い合わせを行うことができます。問い合わせは，各メタデータを表示している画面で「申込申請はこちら」ボタンを押下し，フォームに必要事項のご入力をお願い致します。</p>
+      <p>３．ライセンス条件「CC BY 2.1 JP」とは？</p>
+      <p>広島県オープンデータライブラリのデータに伴うライセンスです。データの利用における規約などについては，<a href="https://www.pref.hiroshima.lg.jp/soshiki/9/opendata.html" target="_blank">こちら</a>をご確認ください。</p>
+    </div>
+    {% endblock %}
+  </div>
+</article>
+{% endblock %}
+
+{% block secondary %}{% endblock %}

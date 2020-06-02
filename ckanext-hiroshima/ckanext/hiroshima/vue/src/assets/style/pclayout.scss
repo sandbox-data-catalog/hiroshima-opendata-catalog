@@ -1,0 +1,114 @@
+#disp {
+  height: 95%;
+}
+
+#container {
+  display: grid;
+  grid-template-rows: 25% 5.5% 5.5% 5.5% 5.5% 5.5% 5.5% 5.5% 5.5% 15% 20%;
+  grid-template-columns: 20% 28% 26% 26%;
+  grid-template-areas:
+    'logo dataset dataset dataset'
+    'site-info iotcanvas-button iotcanvas-button iotcanvas-button'
+    'site-info iotcanvas-button iotcanvas-button iotcanvas-button'
+    'aboutuse iotcanvas-button iotcanvas-button iotcanvas-button'
+    'aboutuse iotcanvas-map iot-canvas new-dataset'
+    'opinion iotcanvas-map iot-canvas new-dataset'
+    'opinion iotcanvas-map iot-canvas new-dataset'
+    'sandbox iotcanvas-map iot-canvas new-dataset'
+    'sandbox iotcanvas-map iot-canvas new-dataset'
+    'sandbox iotcanvas-map iot-canvas new-dataset'
+    'sandbox iotcanvas-map iot-canvas new-dataset';
+  width: 1000px;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#logo {
+  grid-area: logo;
+  display: grid;
+  grid-template-rows: 15% 70% 15%;
+  grid-template-columns: 100%;
+  grid-template-areas:
+    'top'
+    'logoimage'
+    'bottom';
+
+  #top {
+    grid-area: top;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      font-weight: bold;
+      font-size: 16px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  #logoimage {
+    grid-area: logoimage;
+  }
+
+  #bottom {
+    grid-area: bottom;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      font-weight: bold;
+      font-size: 16px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+#dataset {
+  grid-area: dataset;
+}
+#site-info {
+  grid-area: site-info;
+}
+#aboutuse {
+  grid-area: aboutuse;
+}
+#opinion {
+  grid-area: opinion;
+}
+#new-dataset {
+  grid-area: new-dataset;
+}
+#iot-canvas {
+  grid-area: iot-canvas;
+}
+#sandbox {
+  grid-area: sandbox;
+}
+#iotcanvas-button {
+  grid-area: iotcanvas-button;
+}
+#iotcanvas-map {
+  grid-area: iotcanvas-map;
+}
+
+.btn-data {
+  display: flex;
+  justify-content: space-around;
+}
+.btn-large {
+  font-size: 18px;
+  display: flex;
+}
+.btn-mini {
+  font-size: 14px;
+  display: flex;
+  width: 16%;
+}
+
+.dataset-title {
+  font-size: 40px;
+}

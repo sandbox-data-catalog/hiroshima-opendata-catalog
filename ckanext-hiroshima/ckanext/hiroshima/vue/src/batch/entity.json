@@ -1,0 +1,19 @@
+[
+  {
+    "id": "",
+    "type": "",
+    "attributes": [
+      "",
+      ""
+    ],
+    "attributesDate": [
+      {
+        "Default": 25,
+        "Type": "number"
+      },{
+        "Default": 50,
+        "Type": "number"
+      }
+    ]
+  }
+]

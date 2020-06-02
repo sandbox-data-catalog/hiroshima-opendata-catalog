@@ -1,0 +1,14 @@
+{% ckan_extends %}
+
+{% block package_notes %}
+  {% if pkg.license_id == h.meta_data_request_license_id() %}
+    {% set url = h.url_for('package.meta-data-request', id=pkg.name) %}
+    <div class="align-right">
+      <button class="btn btn-primary" onclick="location.href='{{ url }}'">
+        申込申請はこちら
+      </button>
+    </div>
+  {% endif %}
+  {{ super() }}
+{% endblock %}
+

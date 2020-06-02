@@ -1,0 +1,24 @@
+{% if errors['purposes[]'] %}<strong class="error-inline">{{ errors['purposes[]']|join(', ') }}</strong>{% endif %}
+
+{{ h.snippet("package/snippets/input_checkbox.html", name='purposes[]', index='0', label='私的利用、学校その他教育機関、社内、サークル、同好会など組織内での利用', form_data=form_data) }}
+<div class="slug-preview">
+    <label class="control-label">報告書等の添付資料や説明資料として利用</label>
+    {{ h.snippet("package/snippets/input_checkbox.html", name='purposes[]', index='1', label='経営戦略，事業戦略の策定に利用', form_data=form_data) }}
+    {{ h.snippet("package/snippets/input_checkbox.html", name='purposes[]', index='2', label='顧客や市場の調査・分析に利用', form_data=form_data) }}
+    {{ h.snippet("package/snippets/input_checkbox.html", name='purposes[]', index='3', label='商品・サービスの品質向上に利用', form_data=form_data) }}
+    {{ h.snippet("package/snippets/input_checkbox.html", name='purposes[]', index='4', label='基礎研究・学術研究に利用', form_data=form_data) }}
+</div>
+{{ h.snippet("package/snippets/input_checkbox.html", name='purposes[]', index='5', label='一時的な資料として利用', form_data=form_data) }}
+{{ h.snippet("package/snippets/input_checkbox.html", name='purposes[]', index='6', label='論文、試験問題で利用', form_data=form_data) }}
+
+<div class="controls">
+    <div class="row">
+        <div class="col-md-3">
+            {{ h.snippet("package/snippets/input_checkbox.html", name='purposes[]', index='7', label='その他の利用', form_data=form_data) }}
+        </div>
+        <div class="col-md-9">
+            <input id="field-other-purpose" type="text" name="other-purpose" value="{{ form_data['other-purpose']}}" placeholder="" class="form-control">
+            {% if errors['other-purpose'] %}<span class="error-block">{{ errors['other-purpose']|join(', ') }}</span>{% endif %}
+        </div>
+    </div>
+</div>
