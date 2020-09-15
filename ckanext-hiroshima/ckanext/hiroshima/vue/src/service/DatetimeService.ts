@@ -10,6 +10,7 @@ export default {
   },
 
   getHour: (time: string) => {
-    return Moment(time).format('H時')
+    // return Moment(time).format('H時')
+    return Moment(time).add(-9, 'h').format('H時')
   },
 }

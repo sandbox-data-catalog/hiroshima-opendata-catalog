@@ -72,6 +72,7 @@ export default {
                 fontColor: chart.borderColor,
               },
               ticks: {
+                beginAtZero: true,
                 fontColor: 'black',
                 fontSize: 14,
               },

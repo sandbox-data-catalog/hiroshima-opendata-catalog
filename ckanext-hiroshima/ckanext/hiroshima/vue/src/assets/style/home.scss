@@ -233,6 +233,13 @@
   width: 100%;
 }
 
+.iotcanvas-image {
+  background: url('./assets/image/iotcanvas.png') top;
+  background-size: cover;
+  overflow: hidden;
+  width:100%;
+}
+
 .btn-square {
   margin: 5px;
   display: flex;

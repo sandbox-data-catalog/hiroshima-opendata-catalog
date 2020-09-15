@@ -123,11 +123,18 @@
         <div class="title">
           可視化マップ
         </div>
-        <div class="canvas">
-          <iframe
+      <a
+        href="https://iotcanvas.cloud/619/sharing/maps?key=4cec06ed-10a2-4ed9-991f-71fba7f787b7"
+        target="_blank"
+        class="inline-block"
+      >
+        <div class="canvas iotcanvas-image">
+          <!--<iframe
             src="https://iotcanvas.cloud/619/sharing/maps?key=4cec06ed-10a2-4ed9-991f-71fba7f787b7"
           />
+          -->
         </div>
+      </a>
         <div class="bottom-aria">
           <a
             href="https://iotcanvas.cloud/619/sharing/maps?key=4cec06ed-10a2-4ed9-991f-71fba7f787b7"
@@ -161,7 +168,7 @@
             </div>
             <div class="canvas-graph-chartarea">
               <pie
-                v-if="tagLoaded"
+                v-if="tagLoaded && showGraph"
                 class="canvas-pieChart"
                 :labels="pieChart.labels"
                 :chartvalues="pieChart.points"
@@ -211,11 +218,14 @@ import Pie from '@/components/graph/Pie.vue'
 import LineChart from '@/components/graph/Line.vue'
 import DatetimeService from '@/service/DatetimeService'
 import GraphConst from '@/const/graphConst'
+import { sleep } from '@/utils/Common'
 
 import { PackageSearchResponse, PackageSearchResultTags } from './types/CkanApi'
 import { FiwareResponse } from './types/FiwareApi'
 
 type dataType = {
+  showGraph: boolean
+  resizeStatus: boolean
   datasetCount: number
   organizationCount: number
   groupCount: number
@@ -262,6 +272,8 @@ export default Vue.extend({
   },
   data(): dataType {
     return {
+      showGraph: true,
+      resizeStatus: false,
       datasetCount: 0,
       organizationCount: 0,
       groupCount: 0,
@@ -436,6 +448,25 @@ export default Vue.extend({
 
       return pointVal1
     },
+    async handleResize() {
+      if (this.resizeStatus) {
+        return
+      }
+
+      this.resizeStatus = true
+      await sleep(1000)
+
+      this.showGraph = false
+      await sleep(10)
+      this.showGraph = true
+      this.resizeStatus = false
+    },
+  },
+  mounted: function () {
+    window.addEventListener('resize', this.handleResize)
+  },
+  beforeDestroy: function () {
+    window.removeEventListener('resize', this.handleResize)
   },
 })
 </script>
