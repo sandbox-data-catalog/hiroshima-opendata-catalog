@@ -170,15 +170,37 @@
             <tbody>
               <tr>
                 <th scope="row">{{ _('Data last updated') }}</th>
-                <td>{{ h.render_datetime(res.last_modified) or h.render_datetime(res.created) or _('unknown') }}</td>
+                <td>
+                    {% if res.last_modified %}
+                        {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=res.last_modified %}
+                    {% elif res.created %}
+                        {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=res.created %}
+                    {% else %}
+                        {{_('unknown')}}
+                    {% endif %}
+                </td>
               </tr>
               <tr>
                 <th scope="row">{{ _('Metadata last updated') }}</th>
-                <td>{{ h.render_datetime(res.revision_timestamp) or h.render_datetime(res.created) or _('unknown') }}</td>
+                <td>
+                    {% if res.revision_timestamp %}
+                        {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=res.revision_timestamp %}
+                    {% elif res.created %}
+                        {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=res.created %}
+                    {% else %}
+                        {{_('unknown')}}
+                    {% endif %}
+                </td>
               </tr>
               <tr>
                 <th scope="row">{{ _('Created') }}</th>
-                <td>{{ h.render_datetime(res.created) or _('unknown') }}</td>
+                <td>
+                    {% if res.created %}
+                        {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=res.created %}
+                    {% else %}
+                        {{_('unknown')}}
+                    {% endif %}
+                </td>
               </tr>
               <tr>
                 <th scope="row">{{ _('Format') }}</th>
